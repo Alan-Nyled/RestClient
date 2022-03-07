@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace RestClient
 {
 
-    public class Amount
+    public class People
     {
-        public double value { get; set; }
-        public string currency { get; set; }
+        public string? name { get; set; }
+        public string? height { get; set; }
     }
 
 }
