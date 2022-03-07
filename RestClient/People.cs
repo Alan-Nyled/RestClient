@@ -11,6 +11,19 @@ namespace RestClient
     {
         public string? name { get; set; }
         public string? height { get; set; }
+        public string? homeworld { get; set; }
+        public string? climate { get; set; }
+
+    }
+
+
+    public class Caller
+    {
+        public static async Task<Stream> GetData(string url)
+        {
+            HttpClient client = new();
+            return await client.GetStreamAsync(url);
+        }
     }
 
 }

@@ -1,9 +1,12 @@
 ﻿using RestClient;
 using System.Text.Json;
 
-HttpClient client = new();
+var people = Caller.GetData("https://swapi.dev/api/people/15");
+var person = await JsonSerializer.DeserializeAsync<People>(await people);
+var planet = Caller.GetData($"{person.homeworld}");
+var home = await JsonSerializer.DeserializeAsync<People>(await planet);
 
-var stream = client.GetStreamAsync("https://swapi.dev/api/people/1");
-var result = await JsonSerializer.DeserializeAsync<People>(await stream);
-
-Console.WriteLine($"Name: {result.name}\nHeight: {result.height} cm");
+Console.WriteLine($"Name: {person.name}\n" +
+                $"Height: {person.height} cm\n" +
+                $"Homeworld: {home.name}\n" +
+                $"Climate: {home.climate}");
