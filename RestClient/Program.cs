@@ -6,4 +6,4 @@ HttpClient client = new();
 var stream = client.GetStreamAsync("https://swapi.dev/api/people/1");
 var result = await JsonSerializer.DeserializeAsync<People>(await stream);
 
-Console.WriteLine($"Name: {result.name}, Height: {result.height} cm");
+Console.WriteLine($"Name: {result.name}\nHeight: {result.height} cm");
