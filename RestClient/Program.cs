@@ -7,7 +7,7 @@ async Task<Stream> GetData(string url)
     return await client.GetStreamAsync(url);
 }
 
-Console.WriteLine("Enter ID to search for, and hit Enter:");
+Console.WriteLine("Enter a number and hit Enter:");
 var id = Console.ReadLine();
 
 var people = GetData("https://swapi.dev/api/people/" + id);
