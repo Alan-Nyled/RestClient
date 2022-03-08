@@ -19,3 +19,4 @@ Console.WriteLine($"Name: {person.name}\n" +
                 $"Height: {person.height} cm\n" +
                 $"Homeworld: {home.name}\n" +
                 $"Climate: {home.climate}");
+Console.ReadKey();
