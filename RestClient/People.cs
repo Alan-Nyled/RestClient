@@ -15,14 +15,4 @@ namespace RestClient
         public string? climate { get; set; }
 
     }
-    //public class Caller
-    //{
-    //    public static async Task<Stream> GetData(string url)
-    //    {
-    //        HttpClient client = new();
-    //        return await client.GetStreamAsync(url);
-    //    }
-    //}
-
 }
-// Comment tjek
