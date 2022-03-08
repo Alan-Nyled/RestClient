@@ -15,8 +15,6 @@ namespace RestClient
         public string? climate { get; set; }
 
     }
-
-
     public class Caller
     {
         public static async Task<Stream> GetData(string url)
@@ -27,3 +25,4 @@ namespace RestClient
     }
 
 }
+// Comment tjek
