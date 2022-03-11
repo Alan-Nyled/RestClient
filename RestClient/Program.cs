@@ -15,6 +15,18 @@ async Task<Stream?> GetData(string url)
     }
 }
 
+async Task WriteResult(Stream people)
+{
+    var person = await JsonSerializer.DeserializeAsync<People>(people);
+    var planet = GetData($"{person.homeworld}");
+    var home = await JsonSerializer.DeserializeAsync<People>(await planet);
+
+    Console.WriteLine($"\nName: {person.name}\n" +
+                    $"Height: {person.height} cm\n" +
+                    $"Homeworld: {home.name}\n" +
+                    $"Climate: {home.climate}\n");
+}
+
 string input = "";
 
 while (input != "x")
@@ -27,14 +39,7 @@ while (input != "x")
     var people = await GetData("https://swapi.dev/api/people/" + input);
     if (people != Stream.Null)
     {
-        var person = await JsonSerializer.DeserializeAsync<People>(people);
-        var planet = GetData($"{person.homeworld}");
-        var home = await JsonSerializer.DeserializeAsync<People>(await planet);
-
-        Console.WriteLine($"\nName: {person.name}\n" +
-                        $"Height: {person.height} cm\n" +
-                        $"Homeworld: {home.name}\n" +
-                        $"Climate: {home.climate}\n");
+        await WriteResult(people);
     }
     else
     {
