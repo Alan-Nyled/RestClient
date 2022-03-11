@@ -22,6 +22,8 @@ while (input != "x")
     Console.WriteLine("Enter a number and hit Enter (or x to exit)");
     input = Console.ReadLine();
     if (input == "x") { break; }
+    if(input == "") { continue; }
+
     var people = await GetData("https://swapi.dev/api/people/" + input);
     if (people != Stream.Null)
     {
